@@ -30,8 +30,7 @@ body {
   line-height: 1.7;
   margin: 0;
 }
-a { color: var(--green-600); }
-a:hover { color: var(--green-800); }
+
 img { max-width: 100%; height: auto; }
 
 /* ── Skip link (WCAG 2.4.1) ── */
