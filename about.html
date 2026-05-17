@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Über MealLens und SoftwareMaxing e.U. – Marken, Team und Unternehmensgeschichte."/>
+  <title>About Us – MealLens</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+    @media(max-width:700px){ .about-intro { grid-template-columns: 1fr; } }
+    .about-intro img, .about-intro .img-placeholder {
+      border-radius: var(--radius-lg);
+      width: 100%;
+    }
+    .img-placeholder {
+      background: var(--green-50);
+      border: 2px solid var(--green-100);
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+   
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .brand-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+    }
+    .brand-card:hover { border-color: var(--green-400); }
+    .brand-card h3 { font-weight: 800; margin: 1rem 0 .5rem; }
+    .brand-card .nizza { font-size: .78rem; font-weight: 700; color: var(--green-600); background: var(--green-50); padding: .2rem .7rem; border-radius: 50px; display: inline-block; margin-top: .5rem; }
+    .brand-card p { font-size: .88rem; color: var(--gray-500); margin-top: .75rem; }
+
+   
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .team-card { background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center; }
+    .team-avatar { font-size: 3.5rem; display: block; margin-bottom: .75rem; }
+    .team-card h3 { font-weight: 700; font-size: 1rem; margin: 0; }
+    .team-card p { font-size: .85rem; color: var(--gray-500); margin: .3rem 0 0; }
+
+    
+    .media-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .media-table th { background: var(--green-50); color: var(--green-800); padding: .65rem .75rem; text-align: left; font-weight: 700; border-bottom: 2px solid var(--green-100); }
+    .media-table td { padding: .55rem .75rem; border-bottom: 1px solid var(--gray-200); color: var(--gray-700); vertical-align: top; }
+    .media-table tr:last-child td { border-bottom: none; }
+
+    section { padding: 3rem 0; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <header role="banner">
+    <nav class="navbar" aria-label="Hauptnavigation">
+      <div class="navbar-inner">
+        <a class="nav-brand" href="index.html" aria-label="MealLens Startseite">
+          MealLens
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="about.html" aria-current="page">About Us</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.html#pricing" class="nav-cta">Jetzt starten</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <h1>Über Makrosoft</h1>
+    </div>
+
+    <div class="container">
+      <section aria-labelledby="brands-heading">
+        <h2 id="brands-heading" style="font-size:1.5rem;font-weight:800;">Unsere Marken</h2>
+        <p style="color:var(--gray-500)">
+          Wir haben drei Markenformen entwickelt und diese beim Österreichischen Patentamt zur Eintragung angemeldet. Des Weiteren wurden die erstellten Marken auf etwaige Kollisionen mit bestehenden Marken geprüft.
+          
+          <div class="brands-grid">
+            <div clas="brand-card">
+              <span class="nizza" aria-label="Nizza-Klasse 9: Sofware"">Nizza Kl. 9 – Software</span><br>
+              <span class="nizza" aria-label="Nizza-Klasse 42: Software as a Service">Nizza Kl. 42 – Sofware as a Service</span><br/>
+            </div>
+          </div>
+        </p>
+
+        <div class="brands-grid">
+
+         
+          <div class="brand-card">
+            <div style="padding-top:100px;height:300px;font-size:2rem;font-weight:900;letter-spacing:-1px;font-family:'Inter',sans-serif;">
+             
+              MealLens
+              
+            </div>
+            <h3>Wortmarke</h3>
+            <p>Der Name <em>MealLens</em> verbindet „Meal" (Mahlzeit) und „Lens" (Linse/Objektiv).  </p>
+            <br>  
+          </div>
+
+      
+
+         
+          <div class="brand-card">
+            <div style="height: 300px;" aria-label="Bildmarke: grüner Kreis mit Linsen-Fadenkreuz" role="img">
+              <img src="pics/logo2.png">
+            </div>
+            <h3>Bildmarke</h3>
+            <p>Die Bildmarke repräsentiert die Linse einer Kamera, um auf die Hauptfunktion der Software aufmerksam zu machen.</p>
+          </div>
+
+          
+          <div class="brand-card">
+            <div aria-label="Farbmarke: MealLens" role="img" style="padding-top:300px;height:100px;background-color:rgb(88,127,64);display:flex;flex-direction:column;align-items:center;gap:.5rem;">
+              
+
+              
+            </div>
+            <h3>Farbmarke</h3>
+            <p>Die Farbmarke basiert auf dem genormten Grünton: RAL 6017. Die grüne Farbe soll auf frische Zutaten hindeuten.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <nav aria-label="Footer-Navigation">
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="lizenz.html">Lizenz</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="barrierefreiheit.html">Barrierefreiheit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen" aria-describedby="cookie-desc">
+    <p id="cookie-desc">🍪 Wir verwenden Cookies. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+    <div class="cookie-actions">
+      <button id="btn-accept-cookies" class="btn-cookie-accept">Alle akzeptieren</button>
+      <button id="btn-reject-cookies" class="btn-cookie-accept">Nur notwendige</button>
+      <button id="btn-reject-cookies" class="btn-reject-cookies">Einstellungen</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

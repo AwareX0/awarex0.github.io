@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MealLens Checkout – Abonnement abschließen"/>
+  <title>Checkout – MealLens</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      align-items: start;
+      padding: 3rem 0 5rem;
+    }
+    @media (max-width: 800px) { .checkout-grid { grid-template-columns: 1fr; } }
+
+    .order-summary {
+      background: var(--white);
+      border: 2px solid var(--green-400);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: sticky;
+      top: 90px;
+    }
+    .order-summary h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1.25rem; }
+    .plan-row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--gray-200); font-size: .95rem; }
+    .plan-row:last-of-type { border-bottom: none; }
+    .plan-row .label { color: var(--gray-500); }
+    .plan-row .value { font-weight: 700; }
+    .plan-row.total .value { color: var(--green-600); font-size: 1.25rem; }
+    .plan-features-mini { list-style: none; padding: 0; margin: .75rem 0 0; }
+    .plan-features-mini li { font-size: .85rem; color: var(--gray-500); padding: .2rem 0; }
+    .plan-features-mini li::before { content: '✓ '; color: var(--green-600); font-weight: 800; }
+
+    .checkout-form h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .step-label {
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green-600);
+      margin-bottom: .25rem;
+      display: block;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+    .card-field {
+      background: var(--gray-100);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: .65rem 1rem;
+      font-size: .95rem;
+      color: var(--gray-500);
+      font-family: monospace;
+    }
+
+    #success-screen {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    #success-screen .big-icon { font-size: 5rem; display: block; margin-bottom: 1rem; }
+    #success-screen h2 { font-size: 1.8rem; font-weight: 800; color: var(--green-600); }
+    #success-screen p { color: var(--gray-500); max-width: 440px; margin: .75rem auto 1.5rem; }
+
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--green-50);
+      border: 1px solid var(--green-100);
+      border-radius: var(--radius-sm);
+      padding: .6rem 1rem;
+      font-size: .85rem;
+      color: var(--green-800);
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <header role="banner">
+    <nav class="navbar" aria-label="Hauptnavigation">
+      <div class="navbar-inner">
+        <a class="nav-brand" href="index.html" aria-label="MealLens Startseite">
+          MealLens
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="index.html#pricing">Preise</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="page-hero" style="padding:40px 1.5rem 30px;">
+      <h1>Checkout</h1>
+    </div>
+
+    <div class="container">
+      <div id="checkout-screen">
+        <div class="checkout-grid">
+
+          <section aria-labelledby="checkout-form-heading">
+            <div class="checkout-form">
+              <div class="secure-badge" role="note">
+                <span aria-hidden="true">🔒</span>
+                <span>SSL-verschlüsselte Übertragung – Ihre Daten sind sicher.</span>
+              </div>
+
+              <span class="step-label">Schritt 1 von 2</span>
+              <h2 id="checkout-form-heading">Persönliche Daten</h2>
+
+              <form id="checkout-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="ch-vorname">Vorname <span aria-hidden="true">*</span><span class="sr-only">(Pflichtfeld)</span></label>
+                    <input type="text" id="ch-vorname" autocomplete="given-name" placeholder="Max" required/>
+                  </div>
+                  <div class="form-group">
+                    <label for="ch-nachname">Nachname <span aria-hidden="true">*</span></label>
+                    <input type="text" id="ch-nachname" autocomplete="family-name" placeholder="Mustermann" required/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ch-email">E-Mail <span aria-hidden="true">*</span></label>
+                  <input type="email" id="ch-email" autocomplete="email" placeholder="max@beispiel.at" required/>
+                </div>
+
+                <div class="form-group">
+                  <label for="ch-adresse">Rechnungsadresse <span aria-hidden="true">*</span></label>
+                  <input type="text" id="ch-adresse" autocomplete="street-address" placeholder="Musterstraße 1" required/>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="ch-plz">PLZ <span aria-hidden="true">*</span></label>
+                    <input type="text" id="ch-plz" autocomplete="postal-code" placeholder="1010" required/>
+                  </div>
+                  <div class="form-group">
+                    <label for="ch-ort">Ort <span aria-hidden="true">*</span></label>
+                    <input type="text" id="ch-ort" autocomplete="address-level2" placeholder="Wien" required/>
+                  </div>
+                </div>
+
+                <hr style="border:none;border-top:2px solid var(--gray-200);margin:1.5rem 0;"/>
+                <span class="step-label">Schritt 2 von 2</span>
+                <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:1.5rem;">Zahlungsdaten</h2>
+                
+                <div style="padding-bottom: 50px;" class="form-row">
+                  <div class="form-group">
+                    <button class="btn btn-primary" style="width:100%;font-size:1.05rem;padding:.8rem 2rem;">
+                       Weiter zu Paypal
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group" style="display:flex;align-items:flex-start;gap:.6rem;">
+                  <input type="checkbox" id="ch-agb" required style="margin-top:.25rem;"/>
+                  <label for="ch-agb" style="font-size:.88rem;">
+                    Ich akzeptiere die <a href="lizenz.html">Lizenz&shy;bedingungen</a> und die
+                    <a href="datenschutz.html">Datenschutzerklärung</a>.<span aria-hidden="true">*</span>
+                  </label>
+                </div>
+
+                <div id="form-error" role="alert" aria-live="polite" style="color:#c0392b;font-size:.9rem;margin-bottom:1rem;display:none;"></div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%;font-size:1.05rem;padding:.8rem 2rem;">
+                  Jetzt kostenpflichtig abonnieren →
+                </button>
+              
+              </form>
+            </div>
+          </section>
+
+       
+          <aside aria-labelledby="summary-heading">
+            <div class="order-summary">
+              <h2 id="summary-heading">Deine Bestellung</h2>
+              <div id="plan-display">
+                <div class="plan-row">
+                  <span class="label">Plan</span>
+                  <span class="value" id="plan-name">Pro</span>
+                </div>
+                <div class="plan-row">
+                  <span class="label">Preis</span>
+                  <span class="value" id="plan-price">€ 7,99 / Monat</span>
+                </div>
+                <div class="plan-row">
+                  <span class="label">Laufzeit</span>
+                  <span class="value">Monatlich</span>
+                </div>
+                <div class="plan-row total">
+                  <span class="label">Gesamt (inkl. 20% MwSt.)</span>
+                  <span class="value" id="plan-total">€ 7,99</span>
+                </div>
+              </div>
+                           
+            </div>
+          </aside>
+
+        </div>
+      </div>
+
+    
+      <div id="success-screen" role="status" aria-live="polite">
+        <span class="big-icon" aria-hidden="true">🎉</span>
+        <h2>Willkommen bei MealLens!</h2>
+        <p>Dein Abonnement wurde erfolgreich abgeschlossen. Eine Bestätigung wurde an deine E-Mail-Adresse gesendet.</p>
+        <a href="index.html" class="btn btn-primary">Zur Startseite</a>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <nav aria-label="Footer-Navigation">
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="lizenz.html">Lizenz</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="barrierefreiheit.html">Barrierefreiheit</a></li>
+        </ul>
+      </nav>
+      
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen" aria-describedby="cookie-desc">
+    <p id="cookie-desc">🍪 Wir verwenden Cookies für ein optimales Erlebnis. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+    <div class="cookie-actions">
+      <button id="btn-accept-cookies" class="btn-cookie-accept">Alle akzeptieren</button>
+      <button id="btn-reject-cookies" class="btn-cookie-accept">Nur notwendige</button>
+      <button id="btn-reject-cookies" class="btn-reject-cookies">Einstellungen</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    
+    const plans = {
+      basic:   { name: 'Basic',   price: 'Kostenlos',       total: '€ 0,00', features: ['5 Scans pro Tag','Grundrezepte','Nährwert-Übersicht'] },
+      pro:     { name: 'Pro',     price: '€ 7,99 / Monat',  total: '€ 7,99', features: ['Unbegrenzte Scans','Erweiterte Rezepte','Nährwertanalyse','Einkaufsliste PDF'] },
+      premium: { name: 'Premium', price: '€ 14,99 / Monat', total: '€ 14,99',features: ['Alles aus Pro','Offline-Modus','KI-Ernährungsplan','Familienfreigabe'] },
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const planKey = params.get('plan') || 'pro';
+    const plan = plans[planKey] || plans.pro;
+
+    document.getElementById('plan-name').textContent  = plan.name;
+    document.getElementById('plan-price').textContent = plan.price;
+    document.getElementById('plan-total').textContent = plan.total;
+
+    const featureList = document.getElementById('plan-features-mini');
+    featureList.innerHTML = plan.features.map(f => `<li>${f}</li>`).join('');
+
+    
+    document.getElementById('checkout-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const errEl = document.getElementById('form-error');
+      const agb = document.getElementById('ch-agb');
+      const email = document.getElementById('ch-email');
+      const vorname = document.getElementById('ch-vorname');
+      const nachname = document.getElementById('ch-nachname');
+
+      if (!vorname.value || !nachname.value || !email.value || !agb.checked) {
+        errEl.textContent = 'Bitte alle Pflichtfelder ausfüllen und die AGB akzeptieren.';
+        errEl.style.display = 'block';
+        ((!vorname.value ? vorname : !nachname.value ? nachname : !email.value ? email : agb)).focus();
+        return;
+      }
+      errEl.style.display = 'none';
+      document.getElementById('checkout-screen').style.display = 'none';
+      document.getElementById('success-screen').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

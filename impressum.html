@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Impressum"/>
+  <title>Impressum</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+    @media(max-width:700px){ .about-intro { grid-template-columns: 1fr; } }
+    .about-intro img, .about-intro .img-placeholder {
+      border-radius: var(--radius-lg);
+      width: 100%;
+    }
+    .img-placeholder {
+      background: var(--green-50);
+      border: 2px solid var(--green-100);
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .brand-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+    }
+    .brand-card:hover { border-color: var(--green-400); }
+    .brand-card h3 { font-weight: 800; margin: 1rem 0 .5rem; }
+    .brand-card .nizza { font-size: .78rem; font-weight: 700; color: var(--green-600); background: var(--green-50); padding: .2rem .7rem; border-radius: 50px; display: inline-block; margin-top: .5rem; }
+    .brand-card p { font-size: .88rem; color: var(--gray-500); margin-top: .75rem; }
+
+
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .team-card { background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center; }
+    .team-avatar { font-size: 3.5rem; display: block; margin-bottom: .75rem; }
+    .team-card h3 { font-weight: 700; font-size: 1rem; margin: 0; }
+    .team-card p { font-size: .85rem; color: var(--gray-500); margin: .3rem 0 0; }
+
+    .media-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .media-table th { background: var(--green-50); color: var(--green-800); padding: .65rem .75rem; text-align: left; font-weight: 700; border-bottom: 2px solid var(--green-100); }
+    .media-table td { padding: .55rem .75rem; border-bottom: 1px solid var(--gray-200); color: var(--gray-700); vertical-align: top; }
+    .media-table tr:last-child td { border-bottom: none; }
+
+    .info-row {
+    display: flex;
+    margin-bottom: 8px;
+    }
+
+    .label {
+        width: 250px;
+        font-weight: bold;
+    }
+
+    .value {
+        flex: 1;
+    }
+
+    section { padding: 3rem 0; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+  <header role="banner">
+    <nav class="navbar" aria-label="Hauptnavigation">
+      <div class="navbar-inner">
+        <a class="nav-brand" href="index.html" aria-label="MealLens Startseite">
+          MealLens
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.html#pricing" class="nav-cta">Jetzt starten</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <h1>Impressum</h1>
+    </div>
+
+    <div class="container">
+
+      <div class="legal-section" style="margin-top:2rem;">
+        <p>
+            <span style="font-size: 30px;">Macrosoft e.U</span> <br>
+            Inhaber Samuel Pils
+        </p>
+
+        
+        <div class="info-row">
+          Eingetragenes Einzelunternehmen
+        </div>
+     
+        
+        <p>
+          <div class="info-row">
+            <div class="label">Unternehmensgegenstand:</div>
+            <div class="value">Entwicklung und Vertrieb von Softwarelösungen</div>
+          </div>
+        </p>
+
+        
+        <p>
+          <div class="info-row">
+            <div class="label">UID-Nr:</div>
+            <div class="value">ATU12345678</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">FN:</div>
+            <div class="value">123456a</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">FB-Gericht:</div>
+            <div class="value">Landesgericht Sankt Pöten</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Sitz:</div>
+            <div class="value">3300 Amstetten, Musterstraße 10, Österreich</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Tel-Nr:</div>
+            <div class="value">+43 676 1234567</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">E-Mail:</div>
+            <div class="value">kontakt@macrosoft.at</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Kammer:</div>
+            <div class="value">WKÖ, WKNÖ</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Berufsrechts:</div>
+            <div class="value"><a href="https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10007517" >Gewerbeordnung</a>: <a href="https://www.ris.bka.gb.at">https://www.ris.bka.gb.at</a> </div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Bezirkshauptmannschaft:</div>
+            <div class="value">Amstetten</div>
+          </div>
+
+          <div class="info-row">
+            <div class="label">Berufsbezeichnung:</div>
+            <div class="value">Softwareentwickler</div>
+          </div>
+          
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <nav aria-label="Footer-Navigation">
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="lizenz.html">Lizenz</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="barrierefreiheit.html">Barrierefreiheit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen" aria-describedby="cookie-desc">
+    <p id="cookie-desc">🍪 Wir verwenden Cookies. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+    <div class="cookie-actions">
+      <button id="btn-accept-cookies" class="btn-cookie-accept">Alle akzeptieren</button>
+      <button id="btn-reject-cookies" class="btn-cookie-accept">Nur notwendige</button>
+      <button id="btn-reject-cookies" class="btn-reject-cookies">Einstellungen</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
